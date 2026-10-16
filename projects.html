@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Projects — Janani S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="bg-canvas"></canvas><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="grid-bg"></div>
+<nav id="navbar"><a href="./index.html" class="nav-logo">Janani S</a><ul class="nav-links" id="navLinks"><li><a href="./index.html" >Home</a></li><li><a href="./about.html" >About</a></li><li><a href="./skills.html" >Skills</a></li><li><a href="./projects.html" class="active">Projects</a></li><li><a href="./certifications.html" >Certifications</a></li><li><a href="./contact.html" >Contact</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+
+<main class="page"><div class="page-wrap">
+<div class="eyebrow reveal">02 / Selected Work</div>
+<h1 class="page-title reveal delay1">Projects that make <span>data useful.</span></h1>
+<p class="lead reveal delay2">Interactive dashboard prototypes based on the projects documented in my resume. Change the filters and inputs to see the visualizations and KPIs respond.</p>
+
+<section class="project project-featured interactive-project reveal">
+  <div class="project-no">PROJECT 01 · INTERACTIVE POWER BI STYLE DASHBOARD</div>
+  <div class="project-heading-row"><div><h2>Sales Performance Dashboard</h2><div class="tech">Power BI · SQL · KPI Tracking · Drill-down Analysis</div></div><span class="live-pill"><i></i> LIVE DEMO</span></div>
+  <p class="project-intro">A portfolio simulation of the sales dashboard concept described in my resume. Use the filters below; every KPI, bar and trend is recalculated from the demo dataset.</p>
+  <div class="dash-toolbar">
+    <label>Region<select id="salesRegion"><option>All Regions</option><option>North</option><option>South</option><option>East</option><option>West</option></select></label>
+    <label>Category<select id="salesCategory"><option>All Categories</option><option>Technology</option><option>Furniture</option><option>Office Supplies</option></select></label>
+    <button class="dash-reset" id="salesReset">Reset Filters</button>
+  </div>
+  <div class="dashboard-shell sales-dash">
+    <div class="dash-topline"><span>SALES PERFORMANCE / 2026 DEMO DATA</span><span id="salesUpdated">Updated just now</span></div>
+    <div class="kpi-grid">
+      <div class="kpi"><span>Revenue</span><strong id="salesRevenue">₹0</strong><small id="salesRevenueChange">—</small></div>
+      <div class="kpi"><span>Profit</span><strong id="salesProfit">₹0</strong><small id="salesProfitChange">—</small></div>
+      <div class="kpi"><span>Orders</span><strong id="salesOrders">0</strong><small id="salesOrdersChange">—</small></div>
+      <div class="kpi"><span>Avg. Order Value</span><strong id="salesAov">₹0</strong><small>Calculated live</small></div>
+    </div>
+    <div class="dash-grid">
+      <div class="chart-card wide"><div class="chart-title"><span>Monthly Revenue</span><b id="salesPeak">Peak —</b></div><div class="bar-chart" id="salesBars"></div><div class="axis-labels" id="salesMonths"></div></div>
+      <div class="chart-card"><div class="chart-title"><span>Category Mix</span><b id="categoryTotal">100%</b></div><div class="donut-wrap"><div class="donut" id="categoryDonut"><div><strong id="donutValue">—</strong><small>top category</small></div></div></div><div class="legend" id="categoryLegend"></div></div>
+      <div class="chart-card"><div class="chart-title"><span>Regional Revenue</span><b>₹</b></div><div class="h-bars" id="regionBars"></div></div>
+    </div>
+    <div class="demo-note">Portfolio demo data — values are illustrative and used only to demonstrate interactive dashboard behavior. They are not claimed as actual company sales.</div>
+  </div>
+  <a href="https://github.com/Janani11-23" target="_blank" rel="noopener">View project on GitHub →</a>
+</section>
+
+<section class="project project-featured interactive-project reveal delay1">
+  <div class="project-no">PROJECT 02 · IOT + MACHINE LEARNING</div>
+  <div class="project-heading-row"><div><h2>Osteo Sentinel</h2><div class="tech">IoT · Machine Learning · Python · Real-time Sensor Analytics</div></div><span class="live-pill sensor"><i></i> SENSOR SIMULATION</span></div>
+  <p class="project-intro">An interactive visualization of the sensor analytics workflow described in my resume. Adjust the simulated sensor values to see the dashboard state and illustrative risk score respond.</p>
+  <div class="dashboard-shell osteo-dash">
+    <div class="dash-topline"><span>OSTEO SENTINEL / SENSOR MONITOR</span><span id="sensorUpdated">Live simulation</span></div>
+    <div class="sensor-layout">
+      <div class="sensor-controls">
+        <div class="sensor-head"><span>INPUT SENSORS</span><button id="sensorReset">Reset</button></div>
+        <label>Accelerometer <output id="accelOut">1.2</output><input id="accel" type="range" min="0.2" max="4" step="0.1" value="1.2"></label>
+        <label>Force Sensor <output id="forceOut">42</output><input id="force" type="range" min="10" max="100" step="1" value="42"></label>
+        <label>Heart Rate <output id="hrOut">76 bpm</output><input id="hr" type="range" min="45" max="150" step="1" value="76"></label>
+        <label>Blood Pressure <output id="bpOut">122/78</output><input id="bp" type="range" min="90" max="180" step="1" value="122"></label>
+        <label>SpO₂ <output id="spoOut">98%</output><input id="spo" type="range" min="80" max="100" step="1" value="98"></label>
+      </div>
+      <div class="risk-panel"><div class="risk-label">ILLUSTRATIVE MODEL OUTPUT</div><div class="risk-ring" id="riskRing"><div><strong id="riskScore">18</strong><span>/100</span></div></div><div class="risk-status" id="riskStatus">LOW RISK</div><p id="riskText">Current simulated sensor inputs indicate a lower illustrative risk score.</p><div class="risk-scale"><span>LOW</span><span>MEDIUM</span><span>HIGH</span></div></div>
+    </div>
+    <div class="sensor-cards"><div><span>Heart Rate</span><strong id="cardHr">76</strong><small>bpm</small></div><div><span>SpO₂</span><strong id="cardSpo">98</strong><small>%</small></div><div><span>Force</span><strong id="cardForce">42</strong><small>units</small></div><div><span>Signal</span><strong id="signalState">Stable</strong><small>sensor status</small></div></div>
+    <div class="signal-chart"><div class="chart-title"><span>Real-time Sensor Signal</span><b id="signalTime">00:00</b></div><div class="signal-line" id="signalLine"></div></div>
+    <div class="demo-note">Educational portfolio simulation only. The risk score is illustrative and is <strong>not a clinical prediction or medical advice</strong>.</div>
+  </div>
+  <a href="https://github.com/Janani11-23" target="_blank" rel="noopener">View project on GitHub →</a>
+</section>
+
+<div class="section-card reveal delay2" style="margin-top:22px"><h2>Certifications</h2><div class="skill-grid"><span class="skill">Python — GUVI</span><span class="skill">Data Science — QSpiders Institute</span><span class="skill">Data Analytics — Novitech R&amp;D</span></div></div>
+</div></main>
+<footer><div class="footer-logo">JANANI S</div><p class="footer-copy">© 2026 Janani S · Data Analyst</p><div class="footer-links"><a href="https://github.com/Janani11-23" target="_blank">GitHub</a><a href="https://www.linkedin.com/in/jananiat23" target="_blank">LinkedIn</a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=jananishalini62%40gmail.com" target="_blank">Email</a></div></footer>
+<script src="script.js"></script>
+<script>
+const salesData=[
+{m:'Jan',r:'North',c:'Technology',rev:82000,profit:21000,orders:118},{m:'Feb',r:'South',c:'Furniture',rev:69000,profit:14500,orders:96},{m:'Mar',r:'East',c:'Office Supplies',rev:76000,profit:18400,orders:107},{m:'Apr',r:'West',c:'Technology',rev:98000,profit:27600,orders:132},
+{m:'May',r:'North',c:'Furniture',rev:88000,profit:19600,orders:121},{m:'Jun',r:'South',c:'Technology',rev:112000,profit:33400,orders:148},{m:'Jul',r:'East',c:'Office Supplies',rev:91000,profit:22800,orders:125},{m:'Aug',r:'West',c:'Furniture',rev:79000,profit:16100,orders:111},
+{m:'Sep',r:'North',c:'Office Supplies',rev:101000,profit:25800,orders:139},{m:'Oct',r:'South',c:'Technology',rev:124000,profit:39200,orders:156},{m:'Nov',r:'East',c:'Furniture',rev:108000,profit:28100,orders:143},{m:'Dec',r:'West',c:'Technology',rev:136000,profit:44600,orders:171}
+];
+const money=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+function renderSales(){const region=document.getElementById('salesRegion').value,cat=document.getElementById('salesCategory').value;let d=salesData.filter(x=>(region==='All Regions'||x.r===region)&&(cat==='All Categories'||x.c===cat));let rev=d.reduce((a,x)=>a+x.rev,0),profit=d.reduce((a,x)=>a+x.profit,0),orders=d.reduce((a,x)=>a+x.orders,0);document.getElementById('salesRevenue').textContent=money(rev);document.getElementById('salesProfit').textContent=money(profit);document.getElementById('salesOrders').textContent=orders.toLocaleString('en-IN');document.getElementById('salesAov').textContent=money(orders?rev/orders:0);document.getElementById('salesRevenueChange').textContent=profit?((profit/rev)*100).toFixed(1)+'% margin':'—';document.getElementById('salesProfitChange').textContent=orders?money(profit/orders)+' / order':'—';
+let byMonth=Array.from({length:12},(_,i)=>({m:salesData[i].m,v:0}));d.forEach(x=>byMonth[salesData.findIndex(y=>y.m===x.m)].v+=x.rev);let max=Math.max(...byMonth.map(x=>x.v),1),peak=byMonth.reduce((a,b)=>b.v>a.v?b:a,byMonth[0]);document.getElementById('salesPeak').textContent=peak.v?`Peak ${peak.m}`:'Peak —';document.getElementById('salesBars').innerHTML=byMonth.map(x=>`<div class="bar-col"><div class="bar" style="height:${Math.max(4,x.v/max*100)}%" title="${x.m}: ${money(x.v)}"></div></div>`).join('');document.getElementById('salesMonths').innerHTML=byMonth.map(x=>`<span>${x.m[0]}</span>`).join('');
+let cats=['Technology','Furniture','Office Supplies'].map(c=>({c,v:d.filter(x=>x.c===c).reduce((a,x)=>a+x.rev,0)}));let total=cats.reduce((a,x)=>a+x.v,0)||1,top=cats.reduce((a,b)=>b.v>a.v?b:a,cats[0]);document.getElementById('donutValue').textContent=top.v?top.c.split(' ')[0]:'—';document.getElementById('categoryLegend').innerHTML=cats.map(x=>`<div><i class="dot"></i><span>${x.c}</span><b>${Math.round(x.v/total*100)}%</b></div>`).join('');let p=cats.map(x=>x.v/total*100);document.getElementById('categoryDonut').style.background=`conic-gradient(#b98cff 0 ${p[0]}%, #6ee7ff ${p[0]}% ${p[0]+p[1]}%, #ffcf70 ${p[0]+p[1]}% 100%)`;
+let regs=['North','South','East','West'].map(r=>({r,v:d.filter(x=>x.r===r).reduce((a,x)=>a+x.rev,0)})),rmax=Math.max(...regs.map(x=>x.v),1);document.getElementById('regionBars').innerHTML=regs.map(x=>`<div class="hbar-row"><span>${x.r}</span><div><i style="width:${x.v/rmax*100}%"></i></div><b>${x.v?money(x.v).replace('₹','₹'): '—'}</b></div>`).join('');document.getElementById('salesUpdated').textContent='Updated '+new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});}
+['salesRegion','salesCategory'].forEach(id=>document.getElementById(id).addEventListener('change',renderSales));document.getElementById('salesReset').onclick=()=>{document.getElementById('salesRegion').value='All Regions';document.getElementById('salesCategory').value='All Categories';renderSales()};renderSales();
+const defaults={accel:1.2,force:42,hr:76,bp:122,spo:98};function riskCalc(){let a=+accel.value,f=+force.value,h=+hr.value,b=+bp.value,s=+spo.value;let score=12+(a>2.3?(a-2.3)*16:0)+(f<30?(30-f)*.35:0)+(h<55||h>105?Math.min(Math.abs(h-80)*.12,8):0)+(b>145?(b-145)*.12:0)+(s<95?(95-s)*2.2:0);score=Math.max(4,Math.min(94,Math.round(score)));let status=score<35?'LOW RISK':score<65?'MEDIUM RISK':'HIGH RISK';let cls=score<35?'low':score<65?'medium':'high';document.getElementById('riskScore').textContent=score;document.getElementById('riskStatus').textContent=status;document.getElementById('riskStatus').className='risk-status '+cls;document.getElementById('riskRing').style.setProperty('--risk',score*3.6+'deg');document.getElementById('riskText').textContent=score<35?'Current simulated sensor inputs indicate a lower illustrative risk score.':score<65?'Current simulated inputs move the illustrative score into the medium band.':'Current simulated inputs move the illustrative score into the higher illustrative band.';accelOut.textContent=a.toFixed(1);forceOut.textContent=f;hrOut.textContent=h+' bpm';bpOut.textContent=b+'/78';spoOut.textContent=s+'%';cardHr.textContent=h;cardSpo.textContent=s;cardForce.textContent=f;signalState.textContent=(s>=95&&h>=55&&h<=105)?'Stable':'Review';document.getElementById('sensorUpdated').textContent='Updated '+new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});}
+const accel=document.getElementById('accel'),force=document.getElementById('force'),hr=document.getElementById('hr'),bp=document.getElementById('bp'),spo=document.getElementById('spo'),accelOut=document.getElementById('accelOut'),forceOut=document.getElementById('forceOut'),hrOut=document.getElementById('hrOut'),bpOut=document.getElementById('bpOut'),spoOut=document.getElementById('spoOut'),cardHr=document.getElementById('cardHr'),cardSpo=document.getElementById('cardSpo'),cardForce=document.getElementById('cardForce'),signalState=document.getElementById('signalState');[accel,force,hr,bp,spo].forEach(x=>x.addEventListener('input',riskCalc));document.getElementById('sensorReset').onclick=()=>{Object.entries(defaults).forEach(([k,v])=>document.getElementById(k).value=v);riskCalc()};
+let phase=0;function drawSignal(){phase+=.16;let pts=[];for(let i=0;i<48;i++){let y=42+Math.sin(i*.55+phase)*13+Math.sin(i*.17+phase)*5+(+hr.value-80)*.05;pts.push(`${(i/47*100).toFixed(1)},${Math.max(5,Math.min(95,y)).toFixed(1)}`)}document.getElementById('signalLine').innerHTML=`<svg viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="${pts.join(' ')}" fill="none" stroke="#b98cff" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>`;document.getElementById('signalTime').textContent=new Date().toLocaleTimeString([], {minute:'2-digit',second:'2-digit'});requestAnimationFrame(drawSignal)}riskCalc();drawSignal();
+</script>
+</body></html>
